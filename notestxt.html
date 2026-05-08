@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>notes.txt</title>
+	</head>
+
+	<body>
+
+		<h1 id="notes.txt">notes.txt</h1>
+			<p>
+				Some time ago, I came across the famous <a href="http://todotxt.org/">todo.txt</a> by Gina Trapani and the <a href="https://terokarvinen.com/2021/calendar-txt/">calendar.txt</a> by Tero Karvinen, and I really liked the ideas behind them and how function they are.
+				Eventually, I was inspired to try to make something similar, but for notes.
+				By using syntax and formatting from both todo.txt and calendar.txt, I came up with the following format for notes.txt.
+			</p>
+	
+		<h2 id="why-use-plain-text">Why use plain text?</h2>
+		<p>Using plain text is ideal for several reasons:</p>
+		<ul>
+			<li>When using the proper encoding (like UTF-8), can be open and read on a majority of machines and operating systems,</li>
+			<li>You can use tools like <code>grep</code> to find specific notes (in this case lines) from the file,</li>
+			<li>Use other command line utilities to process and manage your notes,</li>
+			<li>Finally, easily send over a network or Internet.</li>
+		</ul>
+	
+		<h3 id="why-not-use-those-note-taking-apps">Why not use those note taking apps?</h3>
+		<p>
+			Note apps are design for specific purposes and formats.
+			They let you do certain things that you can't do in plain text, such as formatting, mind maps, personal wikis, and so forth.
+			The aim of notes.txt is not to replace such apps entirely, but to provide something for notes that would've gone on a sticky or for things that you simple need to write down.
+			Every tool has an ideal situation to be used in, and notes.txt is (hopefully) used in situations where those note apps are either not suitable or just overkill for.
+		</p>
+		<p>
+			However, an up side about taking your notes in a single plain text file, as mentioned above, is to be able to use tools like <code>grep</code> to process your notes, and to easily share them without too much worry for compatbility.
+		</p>
+	
+		<h3 id="why-not-use-markdown-or-org-mode">Why not use Markdown or Org-mode?</h3>
+			<p>
+				The idea behind notes.txt is to be an easy to use format.
+				The user doesn't have to worry about having fancy formatting, nor remember any complex formatting rules (although, Markdown and Org-mode aren't that complicated).
+				But, if you're looking to do more fancier things, like formatting, tracking todos, and such, then those might be a better option.
+			</p>
+	
+		<h2 id="notes.txt-format-rules-syntax">notes.txt format rules (syntax)</h2>
+			<p>
+				The following are the syntax rules for notes.txt.
+				A complete example is also given below that applies all the rules.
+			</p>
+	
+		<h3 id="date-always-appears-first">1. Date always appears first</h3>
+			<p>
+				The date the note was made will always appear before the note content so that you can keep track of when you wrote it.
+				However, if the note is important, you can have a signifier, which is represented by <code>(*)</code>, appearing before the date and a single space seperating them.
+				Also, dates are in ISO 8601 format; year first, month second, and days third (<code>%Y-%m-%d</code>).
+			</p>
+			<p>Ex: <code>2026-05-07</code>.</p>
+	
+		<h4 id="optional-time">Optional: Time</h4>
+			<p>
+				You can also optionally add the time in which you wrote the note.
+				This also follows the standard ISO 8601 format. After the date, use a <code>T</code> and then the hours and minutes.
+				You can also add seconds if you want as well.
+			</p>
+			<p>Ex: <code>2026-05-7T09:00</code>.</p>
+			<p>Keep in mind that time is in a 24-hour format; no AM or PM is used.</p>
+	
+		<h3 id="date-and-note-content-are-seperated-by-a-double-space">2. Date and note content are seperated by a double space</h3>
+			<p>
+				Dates and note content are seperated by a double spaces for a reason: for easier reading.
+				I could’ve decided to use tabs instead, but I know for most people that might cause some issues with formatting (tab sizes being different accross systems).
+			</p>
+	
+		<h3 id="note-content">3. Note content</h3>
+			<p>
+				After the double space is the content of your note.
+				There isn't really any specific formatting except for tags and contexts.
+			</p>
+		<h3 id="contexts-and-tags-may-appear-anywhere-in-the-content-of-the-note">4. Contexts and tags may appear anywhere in the content of the note</h3>
+			<p>
+				A tag uses <code>+</code> character and is followed by a word.
+				Tags are used to associate notes to specific projects or topics.
+				They can also appear anywhere in the content of the note.
+			</p>
+			<p>Ex: <code>+tag</code>.</p>
+			<p>
+				A context uses the <code>@</code> character and, just like a tag, is followed by a word and can appear anywhere in the note's content.
+			</p>
+			<p>Ex: <code>@context</code>.</p>
+	
+		<h3 id="a-complete-example">A complete example</h3>
+			<p>
+				The following is a complete example of what a note might look like:
+			</p>
+			<pre class="text"><code>(*) 2026-05-07T13:00  This is a note with a +tag and a @context. +tag2 @context2</code></pre>
+	
+		<h2 id="the-archive.txt-file">The archive.txt file</h2>
+			<p>
+				This file is used to archive certain notes you want to keep for the long term.
+				This file is especially helpful when you need to clean up your note.txt file it gets too messy.
+			</p>
+	</body>
+</html>
